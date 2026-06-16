@@ -28,19 +28,7 @@ def blog_index():
         posts = []
     return render_template("blog.html", posts=posts)
 
-@app.route("/blog/ga4-report")
-def ga4_report():
-    df = get_active_users_json(client, PROPERTY_ID)
-    report_data = df.to_dict(orient="records")
-    
-    # Get traffic sources from GA4
-    traffic_sources = get_traffic_sources(client, PROPERTY_ID)
-    
-    return render_template("ga4_report.html", 
-                         report=report_data,
-                         sources=traffic_sources)
 
-@app.route("/blog/cancer-analysis")
 def cancer_analysis():
     return render_template("cancer_report.html")
 
