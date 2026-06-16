@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - Monique Sierra{% endblock %}
+
+{% block content %}
+
+</script>
+
+<section class="content-wrapper intro-header-align" data-aos="fade-up">
+  <h1>blog</h1>
+
+  <p class="hero-subtitle">
+    I'm allowed to change my mind, right?
+  </p>
+
+  <p>
+    One similarity between AI and Monique is that we have both been wrong. One difference is that it will never have to live with my little voice creating non-stop noise in its non-existent head. AI should be grateful it's not human.
+  </p>
+</section>
+
+<section class="content-wrapper">
+  <div class="post-list">
+
+    {% if posts %}
+      {% for post in posts %}
+      <a href="{{ url_for('blog_post', post_id=post.id) }}" class="post-item" data-aos="fade-up">
+        
+        <span class="post-date">{{ post.date }}</span>
+        
+        <span class="post-title">{{ post.title }}</span>
+        
+        <p class="post-description">
+          {{ post.description }}
+        </p>
+<div class="post-tags">
+  {% for tag in post.tags %}
+    <span class="tag">#{{ tag }}</span>
+  {% endfor %}
+</div>
+      </a>
+      {% endfor %}
+    {% else %}
+      <p style="opacity: 0.6;">No posts yet.</p>
+    {% endif %}
+
+  </div>
+</section>
+
+{% endblock %}

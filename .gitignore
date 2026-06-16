@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+google_key.json
+venv/
+__pycache__/
+venv/
+.env
+credentials.json

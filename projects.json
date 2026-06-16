@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Data Analytics Dashboard",
+    "description": "Interactive site traffic visualization using GA4 and Chart.js.",
+    "link": "/blog/ga4-report"
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Site",
+    "description": "Custom blueprint-themed portfolio with integrated Google Analytics.",
+    "link": "/"
+  },
+  {
+    "id": 3,
+    "title": "Cancer Data Analysis",
+    "description": "Statistical analysis exploring cancer trends and patterns.",
+    "link": "/blog/cancer-analysis"
+  },
+  {
+    "id": 4,
+    "title": "Another Project",
+    "description": "Short description here.",
+    "link": "#"
+  }
+]

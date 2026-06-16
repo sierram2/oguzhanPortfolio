@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Monique Sierra{% endblock %}
+
+{% block content %}
+
+<section class="content-wrapper intro-header-align" data-aos="fade-up">
+  <h1>projects</h1>
+
+  <p class="hero-subtitle">
+  The data isn't going to analyze itself!  
+  </p>
+
+
+</section>
+
+<section class="content-wrapper">
+  <div class="post-list">
+    {% for project in projects %}
+    <a href="{{ project.link }}" class="post-item" data-aos="fade-up">
+      <span class="post-title project-title">{{ project.title }}</span>
+      <p class="post-description">{{ project.description }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
