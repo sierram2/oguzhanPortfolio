@@ -1,32 +1,9 @@
 from flask import Flask, jsonify, render_template
-from google.oauth2 import service_account
-from google.analytics.data_v1beta import BetaAnalyticsDataClient
-from analytics.ga_daily import get_active_users_json, get_traffic_sources
 import json
 import os 
 
 app = Flask(__name__)
 
-# --- GOOGLE ANALYTICS CREDENTIALS LOGIC ---
-# This checks if we are on Render (Env Var) or Local (File)
-if os.environ.get("GOOGLE_CREDENTIALS_JSON"):
-    # This runs on Render using the environment variable
-    info = json.loads(os.environ.get("GOOGLE_CREDENTIALS_JSON"))
-    credentials = service_account.Credentials.from_service_account_info(info)
-else:
-    # This runs on your computer using your local file
-    # Make sure this file is in your gitignore so it doesn't go to GitHub!
-    credentials = service_account.Credentials.from_service_account_file("google_key.json")
-
-client = BetaAnalyticsDataClient(credentials=credentials)
-PROPERTY_ID = "504615296"
-# ------------------------------------------
-
-# API route for active users
-@app.route("/api/active-users")
-def active_users():
-    df = get_active_users_json(client, PROPERTY_ID)
-    return df.to_json(orient="records", date_format="iso")
 
 # Projects page route
 @app.route("/projects")
